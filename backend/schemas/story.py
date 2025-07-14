@@ -1,0 +1,43 @@
+from typing import List, Optional, Dict
+from datetime import datetime
+from pydantic import BaseModel
+
+
+class StoryOptionsSchema(BaseModel):
+    text: str
+    node_id: Optional[int] = None
+
+
+class StoryNodeBase(BaseModel):
+    content: str
+    is_ending: bool = False
+    is_winning_ending: bool = False
+
+
+class CompleteStoryNodeResponse(StoryNodeBase):
+    id: int
+    options: List[StoryOptionsSchema] = []
+
+    class Config:
+        from_attributes = True
+
+
+class StoryBase(BaseModel):
+    title: str
+    session_id: Optional[str] = None
+
+    class Config:
+        from_attributes = True
+
+
+class CreateStoryRequest(BaseModel):
+    id: int
+    created_at: datetime
+    root_node: CompleteStoryNodeResponse
+    all_nodes: Dict[int, CompleteStoryNodeResponse]
+
+    class Config:
+        # Config class customizes the model's behavior, like data source handling.
+        # from_attributes=True allows this schema to be created from an object's attributes (e.g., a database record),
+        # not just a dict.
+        from_attributes = True

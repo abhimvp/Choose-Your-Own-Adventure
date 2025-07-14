@@ -79,3 +79,17 @@ INFO:     Application startup complete.
 - Add Environment variables and configuration - `.env` & what all we need to add will be seen in `.env.example`.
 - Then we will load our `.env` variables into our app , which will be defined in `core/config.py` and use that
   `settings` in our `main.py` file.
+- `Database Setup:` we will start handling our database models. **It's important to understand the date that your
+  application is going to use & the relationships between those pieces of data. Once you understand that the system
+  becomes significantly easier for you to build.**
+    - Go to our `db/database.py`: need to define the database initialization to be then create database models.
+    - In our `models/story.py`: I want to define the information that we need to store for a story and how this is going
+      to work. - resource for [sqlalchemy](https://www.sqlalchemy.org/)
+    - In our `models/job.py` : we use it because the stories take a little bit of time to populate from LLM , so when
+      someone submits a request to create a new story , it won't be created right away.so we create a `job` which is
+      going to represent the intent to make a story & this is going to have particular progress like "IN_PROGRESS","
+      COMPLETED" etc. we will be keep checking for the status of this job to be completed & then the story will be
+      complete, and we can grab it.
+    - Now we go to `schemas`: define the python class that specifies the type of data that we want our api to accept &
+      to return.This is really important because it allows FastAPI to automatically do some data validation for us to
+      ensure that the data is correct that's coming into the API. write necessary schemas to story and job.
