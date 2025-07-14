@@ -5,7 +5,7 @@ from sqlalchemy import Column, String, Integer, DateTime, Boolean, ForeignKey, J
 # handle all of the complexity of converting that into SQL and working with our Database.
 from sqlalchemy.sql import func
 from sqlalchemy.orm import relationship
-from backend.db.database import Base
+from db.database import Base
 
 
 class Story(Base):

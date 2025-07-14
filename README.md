@@ -93,3 +93,4 @@ INFO:     Application startup complete.
     - Now we go to `schemas`: define the python class that specifies the type of data that we want our api to accept &
       to return.This is really important because it allows FastAPI to automatically do some data validation for us to
       ensure that the data is correct that's coming into the API. write necessary schemas to story and job.
+- `API Routers`: we will start with `routers/story.py` - here we write the endpoints that are going to be hit by our user.

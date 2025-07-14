@@ -31,6 +31,10 @@ class StoryBase(BaseModel):
 
 
 class CreateStoryRequest(BaseModel):
+    theme: str
+
+
+class CompleteStoryResponse(StoryBase):
     id: int
     created_at: datetime
     root_node: CompleteStoryNodeResponse

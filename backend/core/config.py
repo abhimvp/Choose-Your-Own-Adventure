@@ -8,7 +8,7 @@ class Settings(BaseSettings):
     We need to make sure the environment variables and the config variables are set correctly/matched then only it works
     """
     API_PREFIX: str = "/api"
-    BEBUG: bool = False
+    DEBUG: bool = False
     DATABASE_URL: str
     ALLOWED_ORIGINS: str
     GOOGLE_API_KEY: str
