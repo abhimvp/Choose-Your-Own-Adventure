@@ -21,6 +21,15 @@ Resolved 77 packages in 698ms
 Prepared 19 packages in 491ms
 Installed 73 packages in 900ms
 
+# To run our server
+PS C:\Users\abhis\Desktop\PythonDev\Choose-Your-Own-Adventure\backend> uv run main.py
+INFO:     Will watch for changes in these directories: ['C:\\Users\\abhis\\Desktop\\PythonDev\\Choose-Your-Own-Adventure\\backend']
+INFO:     Uvicorn running on http://0.0.0.0:8000 (Press CTRL+C to quit) # Go to http://localhost:8000/redoc in browser
+INFO:     Started reloader process [15560] using WatchFiles
+INFO:     Started server process [22540]
+INFO:     Waiting for application startup.
+INFO:     Application startup complete.
+
 ```
 
 - `psycopg2-binary` : Allows us to connect to postgresSQL Database.
@@ -61,3 +70,12 @@ Installed 73 packages in 900ms
         - Add `__init__.py`
         - Add `story.py`
         - Add `job.py`
+
+## Write/define code - Step by Step
+
+### Backend
+
+- Add Uvicorn and fastapi to `main.py` to create our backend server to serve api - setup.
+- Add Environment variables and configuration - `.env` & what all we need to add will be seen in `.env.example`.
+- Then we will load our `.env` variables into our app , which will be defined in `core/config.py` and use that
+  `settings` in our `main.py` file.
